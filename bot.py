@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 WAITING_FOR_NAME, WAITING_FOR_SURNAME = range(2)
 
 # Замените 'YOUR_BOT_TOKEN_HERE' на реальный токен вашего бота
-BOT_TOKEN = '8212668348:AAGE8zi0XtoX5mnKGj5g3n2-32qBODImugA'
+BOT_TOKEN = ''
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """Обрабатывает команду /start и начинает диалог"""
