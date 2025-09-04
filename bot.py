@@ -5,7 +5,7 @@ from telebot.types import ReplyKeyboardMarkup, ReplyKeyboardRemove
 import os
 import json
 
-bot = telebot.TeleBot(os.getenv('BOT_TOKEN'))
+bot = telebot.TeleBot('8212668348:AAGE8zi0XtoX5mnKGj5g3n2-32qBODImugA')
 
 class training:
     def __init__(self):
