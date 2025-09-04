@@ -5,7 +5,7 @@ from telebot.types import ReplyKeyboardMarkup, ReplyKeyboardRemove
 import os
 import json
 
-bot = telebot.TeleBot('your_bot_id')  
+bot = telebot.TeleBot(os.getenv('BOT_TOKEN'))
 
 class training:
     def __init__(self):
@@ -160,13 +160,10 @@ def handle_text(message):
 
 @bot.poll_answer_handler()
 def handle_poll_answer(poll_answer):
-    print(poll_answer)
     bot.send_message(poll_answer.user.id, 'Ваш ответ записан')
     option_ids = poll_answer.option_ids  
-    print('На тренировке присутствовали:')
     players_on_training = []
     for el in option_ids:
-        print(team_list[el], end='')
         players_on_training.append(team_list[el][:-1])
     cur_training.training_players = players_on_training
     cur_training_dict = cur_training.__dict__
@@ -175,6 +172,5 @@ def handle_poll_answer(poll_answer):
     bot.send_message(poll_answer.user.id, 'Информация о тренировке успешно записана', reply_markup=make_main_menu())
     with open('training_settings.json', 'r', encoding='utf-8') as f:
         data = json.load(f)
-        print(data)
 
 bot.polling(none_stop=True)
